@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macro.mall.tiny.mapper.PmsBrandMapper">
+    <insert id="insertSelective">
+        insert into pms_brand
+        (name, first_letter, sort, )
+        values
+        ()
+    </insert>
+
+
+    <delete id="deleteByPrimaryKey">
+        delete from pms_brand
+        where id = #{id}
+    </delete>
+</mapper>
