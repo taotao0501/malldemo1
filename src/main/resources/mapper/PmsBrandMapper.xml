@@ -3,11 +3,18 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.macro.mall.tiny.mapper.PmsBrandMapper">
+
+
     <insert id="insertSelective">
         insert into pms_brand
-        (name, first_letter, sort, )
+            (name, first_letter, sort,
+            factory_status, show_status, product_count,
+            product_comment_cout, logo, big_pic, brand_story)
         values
-        ()
+            (#{name}, #{firstLetter}, #{sort},
+            #{factoryStatus}, #{showStatus}, #{productCount},
+            #{productCommentCount}, #{logo}, #{bigPic},
+            #{brandStory})
     </insert>
 
 
@@ -15,4 +22,20 @@
         delete from pms_brand
         where id = #{id}
     </delete>
+
+    <select id="selectByExample" resultType="com.macro.mall.tiny.common.model.PmsBrand">
+        select
+             id,
+             name,
+             first_letter,
+             sort,
+             factory_status,
+             show_status,
+             product_count,
+             product_comment_cout,
+             logo,
+             big_pic,
+             brand_story
+        from pms_brand
+    </select>
 </mapper>

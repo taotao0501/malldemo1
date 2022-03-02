@@ -53,19 +53,19 @@ public class PmsBrandController {
         return commonResult;
     }
 
-    @PostMapping(value = "/update/{id}")
-    public CommonResult updateBrand(@PathVariable("id") Long id, @RequestBody PmsBrand pmsBrandDto, BindingResult result) {
-        CommonResult commonResult;
-        int count = demoService.updateBrand(id, pmsBrandDto);
-        if (count == 1) {
-            commonResult = CommonResult.success(pmsBrandDto);
-            LOGGER.debug("updateBrand success:{}", pmsBrandDto);
-        } else {
-            commonResult = CommonResult.failed("操作失败");
-            LOGGER.debug("updateBrand failed:{}", pmsBrandDto);
-        }
-        return commonResult;
-    }
+//    @PostMapping(value = "/update/{id}")
+//    public CommonResult updateBrand(@PathVariable("id") Long id, @RequestBody PmsBrand pmsBrandDto, BindingResult result) {
+//        CommonResult commonResult;
+//        int count = demoService.updateBrand(id, pmsBrandDto);
+//        if (count == 1) {
+//            commonResult = CommonResult.success(pmsBrandDto);
+//            LOGGER.debug("updateBrand success:{}", pmsBrandDto);
+//        } else {
+//            commonResult = CommonResult.failed("操作失败");
+//            LOGGER.debug("updateBrand failed:{}", pmsBrandDto);
+//        }
+//        return commonResult;
+//    }
 
     @GetMapping(value = "/delete/{id}")
     public CommonResult deleteBrand(@PathVariable("id") Long id) {
@@ -79,18 +79,18 @@ public class PmsBrandController {
         }
     }
 
-    @GetMapping(value = "/list")
-    @ResponseBody
-    public CommonResult<CommonPage<PmsBrand>> listBrand(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
-                                                        @RequestParam(value = "pageSize", defaultValue = "3") Integer pageSize) {
-        List<PmsBrand> brandList = demoService.listBrand(pageNum, pageSize);
-        return CommonResult.success(CommonPage.restPage(brandList));
-    }
-
-    @GetMapping(value = "/{id}")
-    @ResponseBody
-    public CommonResult<PmsBrand> brand(@PathVariable("id") Long id) {
-        return CommonResult.success(demoService.getBrand(id));
-    }
+//    @GetMapping(value = "/list")
+//    @ResponseBody
+//    public CommonResult<CommonPage<PmsBrand>> listBrand(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+//                                                        @RequestParam(value = "pageSize", defaultValue = "3") Integer pageSize) {
+//        List<PmsBrand> brandList = demoService.listBrand(pageNum, pageSize);
+//        return CommonResult.success(CommonPage.restPage(brandList));
+//    }
+//
+//    @GetMapping(value = "/{id}")
+//    @ResponseBody
+//    public CommonResult<PmsBrand> brand(@PathVariable("id") Long id) {
+//        return CommonResult.success(demoService.getBrand(id));
+//    }
 
 }

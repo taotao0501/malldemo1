@@ -37,7 +37,7 @@ public class Swagger2Config {
         return new ApiInfoBuilder()
                 .title("malldemo1测试的接口文档")
                 .description("malldemo1相关接口的文档")
-                .termsOfServiceUrl("http://localhost:8888/doc.html")
+                .termsOfServiceUrl("http://localhost:8080/doc.html")
                 .version("1.0")
                 .build();
     }
