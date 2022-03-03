@@ -1,9 +1,8 @@
 package com.macro.mall.tiny.service.impl;
 
-import com.github.pagehelper.PageHelper;
 import com.macro.mall.tiny.mapper.PmsBrandMapper;
 import com.macro.mall.tiny.common.model.PmsBrand;
-import com.macro.mall.tiny.common.model.PmsBrandExample;
+import com.macro.mall.tiny.model.PmsBrandDO;
 import com.macro.mall.tiny.service.PmsBrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +24,7 @@ public class PmsBrandServivceImpl implements PmsBrandService {
     private PmsBrandMapper brandMapper;
 
     @Override
-    public List<PmsBrand> listAllBrand() {
+    public List<PmsBrandDO> listAllBrand() {
         return brandMapper.selectByExample();
     }
 

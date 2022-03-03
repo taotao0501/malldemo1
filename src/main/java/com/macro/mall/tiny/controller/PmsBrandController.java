@@ -3,6 +3,7 @@ package com.macro.mall.tiny.controller;
 import com.macro.mall.tiny.common.CommonPage;
 import com.macro.mall.tiny.common.CommonResult;
 import com.macro.mall.tiny.common.model.PmsBrand;
+import com.macro.mall.tiny.model.PmsBrandDO;
 import com.macro.mall.tiny.service.PmsBrandService;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
@@ -35,7 +36,7 @@ public class PmsBrandController {
     public static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);
 
     @GetMapping(value = "/listAll")
-    public CommonResult<List<PmsBrand>> getBrandList() {
+    public CommonResult<List<PmsBrandDO>> getBrandList() {
         return CommonResult.success(demoService.listAllBrand());
     }
 

@@ -1,6 +1,7 @@
 package com.macro.mall.tiny.service;
 
 import com.macro.mall.tiny.common.model.PmsBrand;
+import com.macro.mall.tiny.model.PmsBrandDO;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
 
 public interface PmsBrandService {
 
-    List<PmsBrand> listAllBrand();
+    List<PmsBrandDO> listAllBrand();
 
     int createBrand(PmsBrand brand);
 
