@@ -9,6 +9,7 @@ import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,6 +37,7 @@ public class PmsBrandController {
     public static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);
 
     @GetMapping(value = "/listAll")
+    @PreAuthorize("hasAuthority('pms:brand:read')")
     public CommonResult<List<PmsBrandDO>> getBrandList() {
         return CommonResult.success(demoService.listAllBrand());
     }

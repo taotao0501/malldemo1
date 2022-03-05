@@ -1,6 +1,7 @@
 package com.macro.mall.tiny.service;
 
 import com.macro.mall.tiny.model.UmsPermission;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Created by macro on 2018/10/8.
  */
 @Repository
+@Mapper
 public interface UmsAdminRoleRelationDao {
 
     /**
