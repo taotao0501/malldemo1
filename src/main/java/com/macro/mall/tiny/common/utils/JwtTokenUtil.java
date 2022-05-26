@@ -1,7 +1,6 @@
 package com.macro.mall.tiny.common.utils;
 
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.slf4j.Logger;
@@ -131,7 +130,7 @@ public class JwtTokenUtil {
     }
 
     /**
-     * 判断token是否可以被刷新
+     * 判断token是否被刷新
      * @param token
      * @return
      */

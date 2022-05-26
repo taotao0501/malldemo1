@@ -19,18 +19,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @Description: JWT登录授权过滤器
+ * @Description: JWT登录授权过滤器, 在用户名和密码校验前添加的过滤器，如果请求中有jwt的token且有效，
+ *  会取出token中的用户名，然后调用SpringSecurity的API进行登录操作。
  * @Author: Bentao She
  * @Email: harrypotterandsbt@gmail.com
  * @Date: 2022/3/5 15:39
  * @Version: V1.0
  **/
-
-/**
- * 在用户名和密码校验前添加的过滤器，如果请求中有jwt的token且有效，
- * 会取出token中的用户名，然后调用SpringSecurity的API进行登录操作。
- */
-
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthenticationTokenFilter.class);
     @Autowired
@@ -46,7 +41,8 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
         String authHeader = request.getHeader(this.tokenHeader);
         if (authHeader != null && authHeader.startsWith(this.tokenHead)) {
-            String authToken = authHeader.substring(this.tokenHead.length());// The part after "Bearer "
+            // The part after "Bearer "
+            String authToken = authHeader.substring(this.tokenHead.length());
             String username = jwtTokenUtil.getUserNameFromToken(authToken);
             LOGGER.info("checking username:{}", username);
             if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
